@@ -25,6 +25,12 @@
 (3) 로딩 되면 바뀌어야 한다. - 페이지 로드 후 이벤트
 
 =========================================
+*/
+let a = document.querySelector("#display");
+window.onload = () => {
+    a.innerText = "ddd";
+};
+/*
 
 2번 문제 설계
 
@@ -47,7 +53,23 @@
 (3) 다른 탭 클릭시 앞서 선택한 탭 색상 제거 - js class명 추가, 삭제 
 
 =========================================
+*/
+let tabs = document.querySelectorAll(".tab");
+function solution2() {
+    for (let b of tabs) {
+        b.addEventListener("click", () => {
+            for (let b of tabs) {
+                b.classList.remove("tabsColor");
+            }
+            b.classList.add("tabsColor");
+            let text = b.innerHTML;
+            solution3(text);
+        });
+    }
+}
+solution2();
 
+/*
 3번 문제 설계
 
 1. 요구사항 확인하기
@@ -68,6 +90,20 @@
 (1) 탭
 
 =========================================
+*/
+
+let blocks = document.querySelectorAll(".block");
+
+function solution3(text) {
+    for (let c of blocks) {
+        c.style.visibility = "hidden";
+        if (c.innerHTML.includes(text)) {
+            c.style.visibility = "visible";
+        }
+    }
+}
+
+/*
 
 4번 문제 설계
 
@@ -92,6 +128,9 @@
 (2) 입력값이 숫자이면 입력이 아예 안되게 한다. - js 이벤트 전파 막기 
 
 =========================================
+*/
+
+/*
 
 5,6번 문제 설계
 
