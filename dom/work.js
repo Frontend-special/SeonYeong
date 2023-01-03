@@ -62,8 +62,6 @@ function solution2() {
                 b.classList.remove("tabsColor");
             }
             b.classList.add("tabsColor");
-            let text = b.innerHTML;
-            solution3(text);
         });
     }
 }
@@ -91,17 +89,6 @@ solution2();
 
 =========================================
 */
-
-let blocks = document.querySelectorAll(".block");
-
-function solution3(text) {
-    for (let c of blocks) {
-        c.style.visibility = "hidden";
-        if (c.innerHTML.includes(text)) {
-            c.style.visibility = "visible";
-        }
-    }
-}
 
 /*
 
