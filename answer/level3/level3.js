@@ -22,7 +22,7 @@ function deleteIngredient(e) {
 
 /*
 이건 버튼 클릭시 데이터를 삭제해주는 함수인데, 
-예외처리로 ...
+예외처리로 타겟이 버튼이 아니라면 그냥 리턴. 즉, 아무 내용 없이 그냥 리턴을 해라는 말인것 같다. 
 
 $tr에 타겟의 가장 가까운 tr을 찾아준다. --> 밑에 나오는 tr이 우리가 추가할 재료와 용량인데 
 그것들을 삭제 해주기 위해 deleteIngredient함수 안에 tr을 불러와 할당해준듯 하다.
@@ -69,7 +69,7 @@ $form.addEventListener("submit", (e) => {
 
 $button.addEventListener("click", () => {
     if ($list.children.length > 0) $list.innerHTML = "";
-    console.log($list.children.length);
+
     INGREDIENT_LIST.forEach((weight, ingredient) => {
         const li = document.createElement("li");
         li.innerText = `${ingredient} : ${weight}`;
@@ -77,5 +77,19 @@ $button.addEventListener("click", () => {
     });
 });
 /*
-1. 
+이건 제출 버튼 클릭이벤트 이다.
+1. 예외처리로 리스트의 자식요소들 중에 length가 0보다큰, 즉 하나라도 있으면
+   빈 문자열로 리셋을 먼저 시킨다. --> 이건 80~90프로 정도 밖에 이해를 못하겠다..뭔가 아직 아리송함
+
+2. INGREDIENT_LIST 안에 내용을 forEach로 순회한다. 
+3. li 태그 요소를 만들어 주고 , 만들어 준 li 요소의 innerText로
+   재료와 용량을 입력해준다.
+4. 그리고 리스트 안에 방금 만든 li 요소들과 그 자식들을 append 해서 넣어준다.
+
+*/
+
+/*
+구글링 키워드
+
+input 텍스트 값 비교하기
 */
