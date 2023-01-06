@@ -90,6 +90,8 @@ $button.addEventListener("click", () => {
 
 /*
 구글링 키워드
-
+html 에 값 집어넣기
+input 클리어 버튼 이벤트, input 값 삭제 
 input 텍스트 값 비교하기
+taget. 종류 
 */
