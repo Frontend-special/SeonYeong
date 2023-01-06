@@ -62,6 +62,8 @@ function solution2() {
                 b.classList.remove("tabsColor");
             }
             b.classList.add("tabsColor");
+            let aa = b.innerHTML;
+            solution3(aa);
         });
     }
 }
@@ -76,7 +78,7 @@ solution2();
 2. 요구사항 바탕으로 인풋 생각하기
 (1) 태그 요소를 불러온다.
 (2) 위의 탭1~5 박스와 현 문제 탭1~5컨텐츠를 연결? 해야한다.
-(3) 탭1~5 중 클릭시 같은 텍슽트 제외 남은 탭 컨텐츠 글자 삭제 
+(3) 탭1~5 중 클릭시 같은 텍스트 제외 남은 탭 컨텐츠 글자 삭제 
     그러나 삭제 됐지만 공간은 남아 있어야 함
 
 3. 인풋 바탕으로 단계별 한글로 함수 설계하기
@@ -89,6 +91,16 @@ solution2();
 
 =========================================
 */
+
+let blocks = document.querySelectorAll(".block");
+function solution3(text) {
+    for (let tt of blocks) {
+        tt.style.visibility = "hidden";
+        if (tt.innerHTML.includes(text)) {
+            tt.style.visibility = "visible";
+        }
+    }
+}
 
 /*
 
@@ -116,6 +128,8 @@ solution2();
 
 =========================================
 */
+
+let inp = document.getElementById("te_input");
 
 /*
 
