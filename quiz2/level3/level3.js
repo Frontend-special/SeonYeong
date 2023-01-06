@@ -30,3 +30,52 @@
 (2) 동일한 재료가 이미 있다면 오류, 리스트에 추가가 되면 안된다. - input 텍스트 값 비교하기
 (3) 버튼 클릭시 리스트에 추가 된 해당 내용만 삭제되어야 한다. - input 클리어 버튼 이벤트, input 값 삭제 
 */
+
+/*
+html 에 값 집어넣기
+input 클리어 버튼 이벤트, input 값 삭제 
+input 텍스트 값 비교하기
+taget. 종류 
+*/
+
+const $form = document.querySelector("#ingredient-form");
+const $ingredientInput = document.querySelector("[name='ingredient']");
+const $weightInput = document.querySelector("[name='weight']");
+const $table = document.querySelector("table");
+const $submitButton = document.querySelector("#submit_button");
+const $list = document.querySelector("#ingredient-list");
+const INGREDIENT_LIST = new Map();
+
+function deleteIngredient(e) {
+    let a = e.target.matches("button");
+    if (a) return e.target.closest("tr").remove();
+}
+
+$form.addEventListener("submit", (el) => {
+    el.preventDefault();
+    const tr = document.createElement("tr");
+    const ingredient = $ingredientInput.value;
+    const weight = $weightInput.value;
+
+    INGREDIENT_LIST.set(ingredient, weight);
+
+    // const bb = INGREDIENT_LIST.has(ingredient);
+
+    tr.innerHTML = `<tr>
+    <td>${ingredient}</td>
+    <td>${weight}</td>
+    <td><button>삭제</button></td>
+    </tr>`;
+
+    $table.append(tr);
+    tr.addEventListener("click", deleteIngredient);
+});
+
+$submitButton.addEventListener("click", (el) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+    <li>${$ingredientInput.value}:${$weightInput.value}</li>
+    `;
+
+    $list.append(li);
+});

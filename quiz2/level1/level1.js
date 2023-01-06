@@ -11,8 +11,6 @@ ex) 길이기 80인 배열은 길이가 5로 분해한다면 16개의 배열을 
 
 */
 
-function division() {}
-
 // arr = [1,2,3,4,5]
 // divition(arr, 2); === [ [1,2], [3,4], [5] ]
 
@@ -37,3 +35,13 @@ output
 3. 인자로 받은 원본배열을 함께 인자로 전달한 숫자의 길이로 나누어야 한다
 4. 나누어진 배열을 배열로 감싸야 한다 
 */
+
+function division(arr, num) {
+    const a = [];
+
+    for (let i = 0; i < arr.length; i += num) {
+        a.push(arr.slice(i, i + num));
+    }
+    return a;
+}
+console.log(division([1, 2, 3, 4, 5], 2));
